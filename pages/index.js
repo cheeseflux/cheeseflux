@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import axios from "axios";
 import config from "../config.json";
 import Head from "next/head";
@@ -5,190 +6,107 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons';
-import IframeResizer from 'iframe-resizer-react';
 
-library.add(fab, fas)
+library.add(fab, fas);
 
-class UserPage extends React.Component {
+const UserPage = () => {
+  if (config.currentScene === "game") {
+    return <div style={{ background: "transparent" }}></div>;
+  }
 
-  render() {
-    let userData = (
-      <div
-        className="container"
-        style={{
-          fontFamily: config.user.font,
-          overflow: 'auto',
-          borderRadius: config.user.corners,
-        }}
-      >
-        <Head>
-          <title>Home | {config.user.username}</title>
-        </Head>
-        <div className="main background">
-          <div className="nav flex">
-            <div>
-            <img className="logo" style={{height: config.avatar.size }} src={config.user.logo} />
-            </div>
-          </div>
-          <div className="herocont flex">
-            <div>
-              <h1 className="title" style={{ color: config.user.color, fontSize: config.web.titleSize }}>{config.web.title}</h1>
-              <p className="subtitle" style={{color: config.user.colorSecondary, fontSize: config.web.subtitleSize}}>{config.web.subtitle}</p>
-              <p>{config.web.desc}</p>
-              <a href={config.social.dribbble} target="_blank" className="mainbutton">
-                <FontAwesomeIcon icon={["fab", "dribbble"]} />
-              </a>
-              <a href={config.social.figma} target="_blank" className="mainbutton">
-                <FontAwesomeIcon icon={["fab", "figma"]} />
-              </a>
-              <a href={config.social.makerlog} target="_blank" className="mainbutton">
-                <FontAwesomeIcon icon={["fas", "check-circle"]} />
-              </a>
-              <a href={config.social.github} target="_blank" className="mainbutton">
+  return (
+    <div className="container fade-in">
+      <Head>
+        <title>{config.user.username} | Portfolio</title>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Quicksand:wght@400;700&display=swap" rel="stylesheet" />
+      </Head>
+
+      <nav className="nav">
+        <img className="logo" src={config.user.logo} alt="Logo" />
+      </nav>
+
+      <header className="herocont">
+        <div className="hero-text">
+          <h1 className="title">{config.web.title}</h1>
+          <p className="subtitle">{config.web.subtitle}</p>
+          <p className="projdesc" style={{ fontSize: '1.2rem', maxWidth: '600px', marginBottom: '2.5rem' }}>{config.web.desc}</p>
+          
+          <div className="social-links">
+            {config.social.github && (
+              <a href={config.social.github} target="_blank" rel="noopener noreferrer" className="mainbutton">
                 <FontAwesomeIcon icon={["fab", "github"]} />
               </a>
-              <a href={config.social.twitter} target="_blank" className="mainbutton">
+            )}
+            {config.social.twitter && (
+              <a href={config.social.twitter} target="_blank" rel="noopener noreferrer" className="mainbutton">
                 <FontAwesomeIcon icon={["fab", "twitter"]} />
               </a>
-              <a href={config.social.facebook} target="_blank" className="mainbutton">
-                <FontAwesomeIcon icon={["fab", "facebook"]} />
+            )}
+            {config.social.dribbble && (
+              <a href={config.social.dribbble} target="_blank" rel="noopener noreferrer" className="mainbutton">
+                <FontAwesomeIcon icon={["fab", "dribbble"]} />
               </a>
-              <a href={config.social.youtube} target="_blank" className="mainbutton">
-                <FontAwesomeIcon icon={["fab", "youtube"]} />
+            )}
+            {config.social.figma && (
+              <a href={config.social.figma} target="_blank" rel="noopener noreferrer" className="mainbutton">
+                <FontAwesomeIcon icon={["fab", "figma"]} />
               </a>
-              
-            </div>
-
-            <div>
-              <img className="avatar" src={config.user.avatar} style={{ maxWidth: config.avatar.size }}/>
-            </div>
+            )}
           </div>
         </div>
 
-        <div className="main projects">
-            <div className="flex">
-              <div>
-              <h1 className="projh1">SKILLS</h1>
-              <hr className="titlehr2" />
-              </div>
-            </div>
+        <div className="hero-image">
+          <img className="avatar" src={config.user.avatar} alt={config.user.username} style={{ width: '320px', height: '320px', objectFit: 'cover' }} />
         </div>
-        <div className="project">
-        <div className="shotscont skills">
-            <FontAwesomeIcon  className="mainbutton btnfix" size={70} icon={["fab", "react"]} />
-            <FontAwesomeIcon  className="mainbutton btnfix" size={70} icon={["fab", "js"]} />
-            <FontAwesomeIcon  className="mainbutton btnfix" size={70} icon={["fab", "html5"]} />
-            <FontAwesomeIcon  className="mainbutton btnfix" size={70} icon={["fab", "figma"]} />
-        </div>        
+      </header>
+
+      <section className="projects-section">
+        <div className="projects-header">
+          <h2 className="projh1">Projects</h2>
+          <div className="left-line"></div>
         </div>
 
-        <div className="main projects">
-              <div className="flex">
-              <div className="left-line">
-              </div>
-              <div>
-              <h1 className="projh1">Projects</h1>
-              </div>
-            </div>
-            <div className="btncenter">
-            <a target="_blank" className="projbtn" href={config.social.coffee}
-      style={{color: config.web.mainbutton.color, background: config.web.mainbutton.background 
-      }}><FontAwesomeIcon icon={["fas", "mug-hot"]} /> support me</a>
-            </div>
-        </div>
-        <div>
-        <div className="project">
         <div className="flex-grid">
-            {config.projects.map((project, index) => (
-            <div className="col center card">
-            <h1 className="projtitle" style={{color: project.color}}>{project.name}</h1>
-            <p className="projdesc">{project.desc}</p>
-            <a target="_blank" className="projbtn" href={project.url}
-      style={{color: config.web.mainbutton.color, background: project.color 
-      }}>{project.buttonTitle}</a>
-            </div>
-            ))}
-        </div>
-        </div>
-
-
-        <div className="main projects">
-            <div className="flex">
+          {config.projects.map((project, index) => (
+            <div key={index} className="glass card">
               <div>
-              <h1 className="projh1">CONCEPTS</h1>
-              <hr className="titlehr" />
+                <h3 className="projtitle" style={{ color: project.color || 'var(--primary)' }}>{project.name}</h3>
+                <p className="projdesc">{project.desc}</p>
               </div>
+              <a 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="projbtn" 
+                href={project.url}
+                style={{ background: project.color || 'var(--primary)', color: '#fff' }}
+              >
+                {project.buttonTitle || 'View Project'}
+              </a>
             </div>
+          ))}
         </div>
-        <div className="project">
-        <div className="shotscont">
-            <div className="flex-grid3">
-              <div className="shot1"><img className="shots" src={config.shots.shot1} /> </div>
-              <div className="shot2"><img className="shots2" src={config.shots.shot2} /> </div>
-              <div className="shot3"><img className="shots2" src={config.shots.shot3} /> </div>
-            </div>
-        </div>        
-        </div>
+      </section>
 
+      <section className="skills-section">
+        <div className="projects-header">
+          <div className="left-line" style={{ transform: 'rotate(180deg)' }}></div>
+          <h2 className="projh1">Skills</h2>
+        </div>
+        <div className="skills-grid">
+          <FontAwesomeIcon className="skill-icon" icon={["fab", "react"]} />
+          <FontAwesomeIcon className="skill-icon" icon={["fab", "js"]} />
+          <FontAwesomeIcon className="skill-icon" icon={["fab", "html5"]} />
+          <FontAwesomeIcon className="skill-icon" icon={["fab", "figma"]} />
+          <FontAwesomeIcon className="skill-icon" icon={["fab", "node-js"]} />
+          <FontAwesomeIcon className="skill-icon" icon={["fab", "github"]} />
+        </div>
+      </section>
 
-        <div className="main projects">
-            <div className="flex">
-              <div className="left-line">
-              </div>
-              <div>
-              <h1 className="projh1">SCHEDULE</h1>
-              </div>
-            </div>
-            <div className="btncenter">
-            <a target="_blank" className="projbtn" href={config.social.glimesh}
-      style={{color: config.web.mainbutton.color, background: config.web.mainbutton.background 
-      }}><FontAwesomeIcon icon={["fas", "headset"]} /> watch live</a>
-            </div>
-        </div>
-        <div className="project">
-        <div className="flex-grid2">
-            {config.schedule.map((schedule, index) => (
-            <div className="col center card2">
-            <img className="schedulelogo" src={schedule.logo} />
-            <p className="projdesc">{schedule.day}</p>
-            <a target="_blank" className="projbtn schedbtn"
-      style={{color: config.web.mainbutton.color, background: config.web.mainbutton.background 
-      }}>{schedule.time}</a>
-            </div>
-            ))}
-        </div>        
-        </div>
-
-        <div className="main projects">
-            <div className="flex">
-              <div>
-              <h1 className="projh1">TESTIMONIALS</h1>
-              <hr className="titlehr" />
-              </div>
-            </div>
-        </div>
-        <div className="project">
-        <div className="shotscont">
-            <div className="flex-grid2 gridfix">
-            <IframeResizer className="wall"
-              src="https://embed.testimonial.to/w/xpbsh?theme=dark&card=base"
-              style={{ width: "800px", minWidth: "100%" }}
-            />
-            </div>
-        </div>        
-        </div>
-        
-
-        </div>
-      </div>
-    );
-
-    if (config.currentScene === "game") {
-      return <body style={{ background: "transparent !important"}}></body>;
-    } else {
-      return userData;
-    }
-  }
-}
+      <footer style={{ padding: '4rem 0', textAlign: 'center', color: 'var(--text-dim)', fontSize: '0.9rem' }}>
+        <p>&copy; {new Date().getFullYear()} {config.user.username}. Built with Next.js</p>
+      </footer>
+    </div>
+  );
+};
 
 export default UserPage;

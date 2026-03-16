@@ -43,11 +43,11 @@
     }
   },
   "social": {
-    "dribbble": "https://dribbble.com/Chezaur",
-    "twitter": "https://twitter.com/Chezaur",
-    "github": "https://github.com/Chezaur",
+    "dribbble": "https://dribbble.com/CheeseBTW",
+    "twitter": "https://twitter.com/CheeseBTW",
+    "github": "https://github.com/CheeseBTW",
     "facebook": "https://facebook.com/Chezaur",
-    "figma": "https://figma.com/@@Chezaur",
+    "figma": "https://figma.com/@CheeseBTW",
     "youtube": "https://www.youtube.com/channel/UC2lXAyN3tLLfEMa34m4S3RA",
     "coffee": "https://ko-fi.com/Cheese",
     "trovo": "https://trovo.live/Chezaur",
@@ -70,30 +70,30 @@
   },
   "projects": [
     {
-      "name": "orangopus",
+      "name": "OPUS",
       "desc": "An open collective that builds free opensource software for creators.",
-      "url": "https://orangopus.com",
+      "url": "https://opus.ad",
       "color": "#FF923E",
       "buttonTitle": "View Project"
     },
     {
       "name": "ollo",
-      "desc": "Branded profiles for creators and beyond.",
-      "url": "https://ollo.fyi",
+      "desc": "Interactive Streaming Platform for streamers and viewers.",
+      "url": "https://ollo.opus.ad/",
       "color": "#0472D8",
       "buttonTitle": "View Project"
     },
     {
       "name": "dynamix-toolbox",
       "desc": "A self-hosted sandbox to boost your workflow",
-      "url": "https://github.com/orangopus/dynamix-toolbox",
-      "color": "#FFFFFF",
+      "url": "https://github.com/byOPUS/dynamix-toolbox",
+      "color": "#2e2e2e",
       "buttonTitle": "Fork on GitHub"
     },
     {
       "name": "mixlook",
       "desc": "View and embed your Mixer profiles. [DEPRECATED]",
-      "url": "https://github.com/orangopus/mixlook",
+      "url": "https://github.com/byOPUS/mixlook",
       "color": "#1FBAEC",
       "buttonTitle": "Fork on GitHub"
     }

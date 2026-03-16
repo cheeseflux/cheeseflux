@@ -4,9 +4,15 @@
   "description": "Dynamic Overlays",
   "main": "index.js",
   "scripts": {
+<<<<<<< HEAD
     "dev": "NODE_OPTIONS=--openssl-legacy-provider next -p 3001",
     "build": "NODE_OPTIONS=--openssl-legacy-provider next build",
     "start": "NODE_OPTIONS=--openssl-legacy-provider next start"
+=======
+    "dev": "next -p 3001",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider next build",
+    "start": "next start"
+>>>>>>> 351c0dee411156769e33fc96aea0b8a7bf793b33
   },
   "keywords": [],
   "author": "Orangopus",

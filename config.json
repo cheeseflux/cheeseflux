@@ -43,16 +43,13 @@
     }
   },
   "social": {
-    "dribbble": "https://dribbble.com/CheeseBTW",
-    "twitter": "https://twitter.com/CheeseBTW",
-    "github": "https://github.com/CheeseBTW",
-    "facebook": "https://facebook.com/Chezaur",
-    "figma": "https://figma.com/@CheeseBTW",
+    "dribbble": "https://dribbble.com/CheeseFlux",
+    "twitter": "https://twitter.com/CheeseFlux",
+    "github": "https://github.com/CheeseFlux",
+    "facebook": "https://facebook.com/CheeseFlux",
+    "figma": "https://figma.com/@CheeseFlux",
     "youtube": "https://www.youtube.com/channel/UC2lXAyN3tLLfEMa34m4S3RA",
-    "coffee": "https://ko-fi.com/Cheese",
-    "trovo": "https://trovo.live/Chezaur",
-    "testimonial": "https://testimonial.to/XPCheese",
-    "makerlog": "https://maker.to/chezaur"
+    "testimonial": "https://testimonial.to/XPCheese"
   },
   "team": {
     "enabled": true,
@@ -70,16 +67,16 @@
   },
   "projects": [
     {
-      "name": "OPUS",
+      "name": "ORANGOPUS",
       "desc": "An open collective that builds free opensource software for creators.",
-      "url": "https://opus.ad",
+      "url": "https://orang.opus.ad",
       "color": "#FF923E",
       "buttonTitle": "View Project"
     },
     {
       "name": "ollo",
       "desc": "Interactive Streaming Platform for streamers and viewers.",
-      "url": "https://ollo.opus.ad/",
+      "url": "https://ollo.watch",
       "color": "#0472D8",
       "buttonTitle": "View Project"
     },

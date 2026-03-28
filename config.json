@@ -83,14 +83,14 @@
     {
       "name": "dynamix-toolbox",
       "desc": "A self-hosted sandbox to boost your workflow",
-      "url": "https://github.com/byOPUS/dynamix-toolbox",
+      "url": "https://github.com/ORANGOPUS/dynamix-toolbox",
       "color": "#2e2e2e",
       "buttonTitle": "Fork on GitHub"
     },
     {
       "name": "mixlook",
       "desc": "View and embed your Mixer profiles. [DEPRECATED]",
-      "url": "https://github.com/byOPUS/mixlook",
+      "url": "https://github.com/ORANGOPUS/mixlook",
       "color": "#1FBAEC",
       "buttonTitle": "Fork on GitHub"
     }

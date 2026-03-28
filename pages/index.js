@@ -78,7 +78,10 @@ const UserPage = () => {
                 rel="noopener noreferrer" 
                 className="projbtn" 
                 href={project.url}
-                style={{ background: project.color || 'var(--primary)', color: '#fff' }}
+                style={{ 
+                  background: project.color || 'var(--primary)', 
+                  color: (project.color === "#ffffff" || project.color === "#fff" || project.color === "white") ? "#000" : "#fff" 
+                }}
               >
                 {project.buttonTitle || 'View Project'}
               </a>

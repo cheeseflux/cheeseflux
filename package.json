@@ -22,7 +22,7 @@
     "discord-rich-presence": "0.0.8",
     "fs": "0.0.1-security",
     "iframe-resizer-react": "^1.1.0",
-    "next": "^9.2.2",
+    "next": "^16.2.1",
     "raw-loader": "^4.0.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"

@@ -18,7 +18,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.15.2",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/react-fontawesome": "^0.1.14",
-    "axios": "^0.19.2",
+    "axios": "^1.15.0",
     "discord-rich-presence": "0.0.8",
     "fs": "0.0.1-security",
     "iframe-resizer-react": "^1.1.0",
